@@ -1,0 +1,56 @@
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+<style>
+    th{
+        color: rgb(8, 43, 79);
+        background-color:#fdbe33;
+    }
+    td{
+        background-color: beige;
+    }
+</style>
+
+            <!-- Contact Start -->
+            <div class="contact wow fadeInUp">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <p>E-RTO</p>
+                        <h2>Users List</h2>
+                    </div>
+                    <center>
+                        <div class="col-md-12">
+                            <div class="contact-form">
+                                <div id="success"></div>
+                                <table class="table table-bordered" width="100%">
+                                    <tr>
+                                    <th>User Name</th>
+                                    <th>Email</th>
+                                    <th>Contact Number</th>
+                                    <th>Address</th>
+                                    <th>Date of Birth</th>
+                                    </tr>
+                                    {% for i in result %}
+                                    <tr>
+                                    <td>{{i.name}}</td>
+                                    <td>{{i.email}}</td>
+                                    <td>{{i.phone}}</td>
+                                    <td>{{i.address}}</td>
+                                    <td>{{i.dob}}</td>
+
+                                    </tr>
+                                    {% endfor %}
+                                    </table>
+                            </div>
+                        </div>
+                    </center>
+                </div>
+            </div>
+            <!-- Contact End -->
+
+
+
+            {% include 'footer.html' %}
+
+            {% endblock %}

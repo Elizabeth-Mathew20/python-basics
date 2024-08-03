@@ -1,0 +1,48 @@
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+
+
+     
+
+
+            <!-- Contact Start -->
+            <div class="contact wow fadeInUp">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <p>Get In Touch</p>
+                        <h2>Login Now</h2>
+                    </div>
+                    <center>
+                        <div class="col-md-6">
+                            <p style="color: rgb(255, 0, 0); font-size: 30px;">{{message4}}</p>
+                            <div class="contact-form">
+                                <div id="success"></div>
+                                <form action="addlogin" method="post" id="contactForm" novalidate="novalidate">
+                                   {% csrf_token %}
+                                    <div class="control-group">
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        <input type="password" class="form-control" id="subject" name="password" placeholder="Password" required="required" data-validation-required-message="Please enter a subject" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                  
+                                    <div>
+                                        <button class="btn" type="submit" id="sendMessageButton">LOGIN</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </center>
+                </div>
+            </div>
+            <!-- Contact End -->
+
+
+
+            {% include 'footer.html' %}
+
+            {% endblock %}

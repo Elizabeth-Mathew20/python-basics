@@ -1,0 +1,65 @@
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+<style>
+    th{
+        color: rgb(8, 43, 79);
+        background-color:#fdbe33;
+    }
+    td{
+        background-color: beige;
+    }
+</style>
+{% if msg %}
+<script>
+    alert('{{msg}}');
+</script>
+{% endif%}
+            
+
+            <!-- Contact Start -->
+            <div class="contact wow fadeInUp">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <p>E-RTO</p>
+                        <h2>Complaint List</h2>
+                    </div>
+                    <center>
+                        <div class="col-md-12">
+                            <div class="contact-form">
+                                <div id="success"></div>
+                                <table class="table table-bordered" width="100%">
+                                    <tr>
+                                    <th>Vehicle Number</th>
+                                    <th>User</th>
+                                    <th>Date</th>
+                                    <th>Reason</th>
+                                    <th>Check Post</th>
+                                    <th>Register Complaint</th>
+                                    </tr>
+                                    {% for i in result %}
+                                    <tr>
+                                    <td>{{i.reg_no}}</td>
+                                    <td>{{i.uid}}</td>
+                                    <td>{{i.date}}</td>
+                                    <td>{{i.reason}}</td>
+                                    <td>{{i.checkpost_id}}</td>
+                                    <td><a href="regcomplaint" class='btn btn-warning'>Register</a></td>
+
+
+                                    </tr>
+                                    {% endfor %}
+                                    </table>
+                            </div>
+                        </div>
+                    </center>
+                </div>
+            </div>
+            <!-- Contact End -->
+
+
+
+            {% include 'footer.html' %}
+
+            {% endblock %}

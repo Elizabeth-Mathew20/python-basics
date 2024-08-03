@@ -1,0 +1,89 @@
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+<style>
+    th{
+        color: rgb(8, 43, 79);
+        background-color:#fdbe33;
+    }
+    td{
+        background-color: beige;
+    }
+</style>
+
+            <!-- Contact Start -->
+            <div class="contact wow fadeInUp">
+                <div class="container">
+                    <div class="section-header text-center">
+                    <div class="section-header text-center">
+                        <p>E-RTO</p>
+                        <h2>Vehicle Detail</h2>
+                    </div>
+                    <center>
+                        <div class="col-md-12">
+                            <div class="contact-form">
+                       
+                                <table class="table table-bordered" width="">
+                                    <tr>
+                                    <th>Registration Number</th>
+                                    <td>{{result.reg_no}}</td>
+                                    </tr>
+                                    <tr>
+                                    <th>Owner Name</th>
+                                    <td>{{result.ownwer_name}}</td>
+                                    </tr>
+                                    <tr>
+                                    <th>Address</th>
+                                    <td>{{result.address}}</td>
+                                    </tr>
+                                    <tr>
+                                    <th>Vehicle Company Name</th>
+                                    <td>{{result.cmpny_name}}</td>
+                                    </tr>
+                                    <tr>
+                                    <th>Vehicle Type</th>
+                                    <td>{{result.vehicle_type}}</td>
+                                    </tr>
+                                    <tr>
+                                    <th>Vehicle Fuel Type</th>
+                                    <td>{{result.fuel_type}}</td>
+                                    </tr>
+                                    <tr>
+                                    <th>Engine CC</th>
+                                    <td>{{result.engine_cc}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Insurance Expiry Date</th>
+                                        <td>{{result.ins_exdate}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Pollution Expiry Date</th>
+                                        <td>{{result.pollution_edate}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Registration Expiry Date</th>
+                                        <td>{{result.reg_edate}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Insurance Certificate</th>
+                                        <td class="quantity-box">Download:<a href="../media/{{ result.ins }}" download >{{ result.ins }}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Pollution Certificate</th>
+                                        <td class="quantity-box">Download:<a href="../media/{{ result.pollution }}" download >{{ result.pollution }}</a></td>
+                                    </tr>
+                                  
+                                    </table>
+                                </div>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            <!-- Contact End -->
+
+
+
+            {% include 'footer.html' %}
+
+            {% endblock %}

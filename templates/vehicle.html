@@ -1,0 +1,112 @@
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+
+<script>
+    function capitalizeInput() {
+        var input = document.getElementById("regnumber");
+        input.value = input.value.toUpperCase();
+    }
+</script>
+     
+
+
+            <!-- Contact Start -->
+            <div class="contact wow fadeInUp">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <p>Get In Touch</p>
+                        <h2>Add Your Vehicle Details</h2>
+                    </div>
+                    <center>
+                        <div class="col-md-6">
+                            <div class="contact-form">
+                                <div id="success"></div>
+                                <form action="addvehicle" method="post" id="contactForm" novalidate="novalidate" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="control-group">
+                                        <input type="text" class="form-control" id="regnumber" oninput="capitalizeInput()"  name="reg_no" placeholder="Registration Number" required="required" data-validation-required-message="Please enter" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        <input type="text" class="form-control" id="email" name="ownwer_name" placeholder="Owner Name" required="required" data-validation-required-message="Please enter" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                   
+                               
+                                    <div class="control-group">
+                                        <textarea class="form-control" id="address" placeholder="Address" name="address" required="required" data-validation-required-message="Please enter "></textarea>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        <input type="text" class="form-control" id="subject" name="cmpny_name" placeholder="Vehicle Company Name" required="required" data-validation-required-message="Please enter " />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        <select name="vehicle_type" id="volunteer-subject" class="form-control form-select" placeholder="" required>
+                                            <option value="">Select Vehicle Type</option>
+                                          
+                                            <option value="Two Wheeler">Two Wheeler</option>
+                                            <option value="Three Wheeler">Three Wheeler</option>
+                                            <option value="Four Wheeler">Four Wheeler</option>
+                                            <option value="Heavy Vehicle">Heavy Vehicle</option>
+                                            <option value="other">Other</option>
+                                           
+            
+                                        </select>
+                                    </div><br>
+                                    <div class="control-group">
+                                        <select name="fuel_type" id="volunteer-subject" class="form-control form-select" placeholder="" required>
+                                            <option value="">Select Vehicle Fuel Type</option>
+                                          
+                                            <option value="Petrol">Petrol</option>
+                                            <option value="Diesel">Diesel</option>
+                                            <option value="Electric">Electric</option>
+                                        </select>
+                                    </div><br>
+                                    <div class="control-group">
+                                        <input type="text" class="form-control" id="subject" name="engine_cc" placeholder="Engine CC" required="required" data-validation-required-message="Please enter " />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="">Insurance Expiry Date</label>
+                                        <input type="date" class="form-control" id="subject" name="ins_exdate" placeholder="Insurance Expiry Date" required="required" data-validation-required-message="Please enter " />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="">Pollution Expiry Date</label>
+                                        <input type="date" class="form-control" id="subject" name="pollution_edate" placeholder="Pollution Expiry Date" required="required" data-validation-required-message="Please enter " />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="">Registration Expiry Date</label>
+                                        <input type="date" class="form-control" id="subject" name="reg_edate" placeholder="Registration Expiry Date" required="required" data-validation-required-message="Please enter " />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="">Insurance Certificate</label>
+                                        <input type="file" class="form-control" id="subject" name="ins" placeholder="Insurance Certificate" required="required" data-validation-required-message="Please enter " />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="">Pollution Certificate</label>
+                                        <input type="file" class="form-control" id="subject" name="pollution" placeholder="Pollution Certificate" required="required" data-validation-required-message="Please enter " />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div>
+                                        <button class="btn" type="submit" id="sendMessageButton">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </center>
+                </div>
+            </div>
+            <!-- Contact End -->
+
+
+
+            {% include 'footer.html' %}
+
+            {% endblock %}

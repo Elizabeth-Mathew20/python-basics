@@ -1,0 +1,31 @@
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+
+
+     
+<div class="contact wow fadeInUp">
+    <div class="container">
+        <div class="section-header text-center">
+        <div class="section-header text-center">
+            <p>E-RTO</p>
+            <h2>QR Code</h2>
+        </div>
+        <center>
+            <div class="col-md-12">
+                <div class="contact-form">
+
+<img style="height: 250px;" src="{% get_media_prefix %}qrcodes/qrcode_{{ result.id }}.png" alt="QR Code"><br>
+<a href="{% get_media_prefix %}qrcodes/qrcode_{{ result.id }}.png" download>
+ <b class="btn">Download QR</b>
+  </a>
+</div>
+</div>
+</center>
+</div>
+</div>
+
+            {% include 'footer.html' %}
+
+            {% endblock %}

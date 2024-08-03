@@ -1,0 +1,76 @@
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+
+
+     
+
+
+            <!-- Contact Start -->
+            <div class="contact wow fadeInUp">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <p>Get In Touch</p>
+                        <h2>Pay Fine</h2>
+                    </div>
+                    <center>
+                        <div class="col-md-6">
+                            <div class="contact-form">
+                                <div id="success"></div>
+                                <form action="addfinepayment" method="post" >
+                                    {% csrf_token %}
+                                    <div class="control-group">
+                                        <input type="text" class="form-control" id="name" name="reg_no" placeholder="" readonly value="{{result.reg_no}}" required="required"  />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    
+                                   
+                                    <div class="control-group">
+                                        <p>Date of Payment</p>
+                                        <input type="date" class="form-control" id="dob" name="date" placeholder="Contact Number" required  />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                   
+                                    <div class="control-group">
+                                        <p>Amount to be Paid</p>
+                                        <input type="text" class="form-control" id="password" name="amount" placeholder="Amount" readonly value="{{result.amount}}" required="required" data-validation-required-message="Please enter a Password" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        <select name="card_type" id="volunteer-subject" class="form-control form-select" placeholder="" required>
+                                            <option value="">Select Card Type</option>
+                                          
+                                            <option value="Debit">Debit</option>
+                                            <option value="Credit">Credit</option>
+                                        </select>
+                                    </div><br>
+                                    <div class="control-group">
+                                        <input type="text" class="form-control" id="password" name="card_name" placeholder="Card Name" required="required" data-validation-required-message="Please enter a Password" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        <input type="text" class="form-control"  pattern="[0-9]{14}" title="Enter 14 Digits" name="card_no" placeholder="Card Number" required="required"  />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        <input type="text" class="form-control"  pattern="[0-9]{3}" title="Enter 3 Digits" name="cvv" placeholder="CVV" required="required"  />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    
+                                    <div>
+                                        <button class="btn" type="submit" id="sendMessageButton">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </center>
+                </div>
+            </div>
+            <!-- Contact End -->
+
+
+
+            {% include 'footer.html' %}
+
+            {% endblock %}
